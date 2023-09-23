@@ -24,10 +24,10 @@
 .weather-clouds::before {
 	content: "";
 	background-image: url("/images/fog.png");
-	height: 810px;
+	height: 438px;
 	position: absolute;
 	width: 100%;
-	background-repeat: repeat-x;
+	background-size: contain;
 }
 
 .weather-clear {
@@ -45,7 +45,7 @@
 .weather-clear::before {
 	content: "";
 	background-image: url("/images/fog.png");
-	height: 810px;
+	height: 585px;
 	position: absolute;
 	width: 100%;
 	background-repeat: repeat-x;
