@@ -36,6 +36,12 @@ export default function Home() {
     return ('loading')
   }
 
+  const icon = () => {
+    if (!isLoading) {
+      return data?.weather[0].icon
+    }
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className='bg-white w-80 text-black p-5 flex flex-col justify-center rounded-xl z-50'>
@@ -51,7 +57,7 @@ export default function Home() {
         </div>
         <div className='flex justify-center my-8'>
           <div className='relative w-36 h-36 shadow-3xl rounded-full flex items-center justify-center'>
-          <div className="absolute -left-[1.7rem] -top-[2rem] bg-[url(http://openweathermap.org/img/wn/04d@2x.png)] w-28 h-28 drop-shadow-3xl"></div>
+          <div className={`absolute -left-[1.7rem] -top-[2rem] w-28 h-28 drop-shadow-3xl`} style={{backgroundImage: `url(http://openweathermap.org/img/wn/${icon()}@2x.png)`}}></div>
             <span className='text-6xl font-extrabold'>{ Math.ceil( data?.main.temp ?? 0 )}<sup>&deg;</sup></span>
           </div>
         </div>

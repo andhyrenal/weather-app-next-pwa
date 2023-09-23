@@ -20,7 +20,6 @@ const useWeather = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(inputRef.current?.value)
     setLocation(inputRef.current?.value as string)
   };
 
