@@ -1,0 +1,116 @@
+.weather-animate {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: background-image 2s;
+	background-position: center;
+}
+.weather-clouds {
+	background-image: url("/images/clouds.jpg");
+	&::after {
+		top: -50px;
+		animation: animateCloud var(--cloudAnimateTime) linear infinite alternate-reverse;
+	}
+	&::before {
+		top: 300px;
+		animation: animateCloud calc(var(--cloudAnimateTime) / 2) linear infinite alternate;
+	}
+}
+.weather-clouds::after,
+.weather-clouds::before {
+	content: "";
+	background-image: url("/images/fog.png");
+	height: 810px;
+	position: absolute;
+	width: 100%;
+	background-repeat: repeat-x;
+}
+
+.weather-clear {
+	background-image: url("/images/clear.jpg");
+	&::after {
+		top: -50px;
+		animation: animateCloud var(--cloudAnimateTime) linear infinite alternate-reverse;
+	}
+	&::before {
+		top: 200px;
+		animation: animateCloud calc(var(--clearAnimationTime) / 2) linear infinite alternate;
+	}
+}
+.weather-clear::after,
+.weather-clear::before {
+	content: "";
+	background-image: url("/images/fog.png");
+	height: 810px;
+	position: absolute;
+	width: 100%;
+	background-repeat: repeat-x;
+}
+
+@keyframes animateCloud {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.weather-snow {
+	background-image: url("/images/snow.jpg");
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		animation: animateSnow var(--snowAnimateTime) cubic-bezier(0.28,0.54,0.47,0.56) infinite normal;
+		background-image: url("/images/snow2.png"), url("/images/snow3.png"), url("/images/snow4.png"), url("/images/snow3.png");
+	}
+}
+
+@keyframes animateSnow {
+	0% {
+	  background-position: 0px 0px, 0px 0px, 0px 0px;
+	}
+	100% {
+	  background-position: 400px 1100px, 400px 400px, 600px 600px;
+	}
+}
+
+.weather-rain {
+	background-image: url("/images/rain-bg.jpg");
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: repeat;
+		animation: animateRain var(--rainAnimateTime) cubic-bezier(0.28,0.54,0.47,0.56) infinite normal;
+		background-image: url("/images/rain-1.png"), url("/images/rain-2.png");
+		opacity: 0.8;
+	}
+}
+
+@keyframes animateRain {
+	0% {
+	  background-position: 0px 0px, 0px 0px, 0px 0px;
+	}
+	100% {
+	  background-position: 400px 1100px, 400px 400px, 600px 600px;
+	}
+  }
+
+.error {
+	background-image: url("/images/error.jpg");
+}
+
+
+
