@@ -16,7 +16,7 @@
 		animation: animateCloud var(--cloudAnimateTime) linear infinite alternate-reverse;
 	}
 	&::before {
-		top: 300px;
+		top: 221px;
 		animation: animateCloud calc(var(--cloudAnimateTime) / 2) linear infinite alternate;
 	}
 }
